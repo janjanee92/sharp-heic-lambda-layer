@@ -1,10 +1,10 @@
 'use strict';
 
 const region = process.env.AWS_REGION || 'ap-northeast-2';
-const stackName = process.env.STACK_NAME || 'sharp-heic-lambda-layer';
-const layerName = process.env.LAYER_NAME || 'sharp-heic';
+const stackName = process.env.STACK_NAME || 'sharp-heic-kvazaar-lambda-layer';
+const layerName = process.env.LAYER_NAME || 'sharp-heic-kvazaar';
 const samBucket = process.env.SAM_BUCKET;
-const s3Prefix = process.env.S3_PREFIX || 'sharp-heic-lambda-layer';
+const s3Prefix = process.env.S3_PREFIX || 'sharp-heic-kvazaar-lambda-layer';
 const organizationId = process.env.ORGANIZATION_ID || 'none';
 const principal = process.env.PRINCIPAL || 'account';
 const packagedTemplate = 'packaged-template.yaml';
