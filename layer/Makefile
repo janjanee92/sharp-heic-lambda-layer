@@ -15,7 +15,7 @@ LIBRARY_PATH=$(LIB_PATH)
 export PKG_CONFIG_PATH=$(LIB_PATH)/pkgconfig:$$PKG_CONFIG_PATH
 export LD_LIBRARY_PATH=$(LIB_PATH):$$LD_LIBRARY_PATH
 
-build-SharpHEICLayer: libvips
+build-SharpHEICKvazaarLayer: libvips
 	mkdir -p "$(ARTIFACTS_DIR)/nodejs"
 	mkdir -p "$(ARTIFACTS_DIR)/lib"
 
