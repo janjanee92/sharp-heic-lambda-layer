@@ -2,7 +2,7 @@
 WEBP_VERSION=1.4.0
 LIBDE265_VERSION=1.0.15
 LIBAOM_VERSION=3.9.1
-KVAZAAR_VERSION=2.3.1
+X265_VERSION=3.6
 LIBHEIF_VERSION=1.18.2
 VIPS_VERSION=8.15.3
 SHARP_VERSION=0.33.5
@@ -45,16 +45,16 @@ libde265:
 	curl -L https://github.com/strukturag/libde265/releases/download/v$(LIBDE265_VERSION)/libde265-$(LIBDE265_VERSION).tar.gz | tar zx
 	cd libde265-$(LIBDE265_VERSION) && ./autogen.sh && ./configure --disable-dec265 --disable-sherlock265 --prefix=$(PREFIX_PATH) && make V=0 && make install
 
-kvazaar:
-	# kvazaar
-	curl -L https://github.com/ultravideo/kvazaar/archive/refs/tags/v$(KVAZAAR_VERSION).tar.gz | tar zx
-	cd kvazaar-$(KVAZAAR_VERSION) && ./autogen.sh && ./configure --prefix=$(PREFIX_PATH) && make && make install
+x265:
+	# x265
+	curl -L https://bitbucket.org/multicoreware/x265_git/downloads/x265_$(X265_VERSION).tar.gz | tar zx
+	cd x265_$(X265_VERSION) && cd build/linux && cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$(PREFIX_PATH) ../../source && make && make install
 
 libaom:
 	curl -L https://storage.googleapis.com/aom-releases/libaom-${LIBAOM_VERSION}.tar.gz | tar zx && \
 	cd libaom-${LIBAOM_VERSION} && cd build && cmake -DCONFIG_AV1_ENCODER=1 -DBUILD_SHARED_LIBS=1 -DENABLE_TESTS=0 -DENABLE_DOCS=0 -DCMAKE_INSTALL_PREFIX=${PREFIX_PATH} -DCMAKE_INSTALL_LIBDIR=${PREFIX_PATH}/lib .. && make V=1 && make install
 
-libheif: kvazaar libde265 libaom
+libheif: x265 libde265 libaom
 	# libheif
 	curl -L https://github.com/strukturag/libheif/releases/download/v$(LIBHEIF_VERSION)/libheif-$(LIBHEIF_VERSION).tar.gz | tar zx
 	cd libheif-$(LIBHEIF_VERSION) && mkdir build && cd build && cmake -DCMAKE_INSTALL_LIBDIR=$(LIB_PATH) --preset=release-noplugins .. && make V=0 && make install
