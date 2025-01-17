@@ -12,4 +12,4 @@ Resources:
       Timeout: 10
       MemorySize: 1024
       Layers:
-        - !ImportValue SharpHEICLayerArn
+        - !ImportValue SharpHEICKvazaarLayerArn

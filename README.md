@@ -33,7 +33,7 @@ sam deploy --guided
 ```
 
 ### Lambda Layer
-- Add the lambda layer with ARN `arn:aws:lambda:us-east-1:${AWS:AccountId}:layer:sharp-heic:${LAYER_VERSION}` to any lambda function (replace `${LAYER_VERSION}` with the appropriate version and `${AWS:AccountId}` if you're not using a layer from the same account as the function). You can also import the layer ARN using `!ImportValue SharpHEICLayerArn`.
+- Add the lambda layer with ARN `arn:aws:lambda:us-east-1:${AWS:AccountId}:layer:sharp-heic:${LAYER_VERSION}` to any lambda function (replace `${LAYER_VERSION}` with the appropriate version and `${AWS:AccountId}` if you're not using a layer from the same account as the function). You can also import the layer ARN using `!ImportValue SharpHEICKvazaarLayerArn`.
 - Remove sharp from the dependencies in the function code (it will otherwise conflict with the one provided through the layer)
 - See [example template](examples/sam-template.yaml) for a complete sample template.
 
