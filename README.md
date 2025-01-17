@@ -38,15 +38,15 @@ sam deploy --guided
 - See [example template](examples/sam-template.yaml) for a complete sample template.
 
 ### Environment Variables for build
-|            Name | Required | Default Value           |                                   Description |
+|            Name | Required |           Default Value |                                   Description |
 |-----------------|----------|-------------------------|-----------------------------------------------|
 |      SAM_BUCKET |      yes |                         | Name of S3 Bucket to store layer              |
 |       S3_PREFIX |       no | sharp-heic-lambda-layer | Prefix within S3 Bucket to store layer        |
 |      STACK_NAME |       no | sharp-heic-lambda-layer | Name of CloudFormation stack                  |
-|      LAYER_NAME |       no | sharp-heic              | Name of layer                                 |
-|      AWS_REGION |       no | ap-northeast-2          | AWS Region to deploy to                       |
-| ORGANIZATION_ID |       no | none                    | ID of Organization to grant access to layer   |
-|       PRINCIPAL |       no | account                 | Principal to grant access to layer            |
+|      LAYER_NAME |       no |              sharp-heic | Name of layer                                 |
+|      AWS_REGION |       no |               us-east-1 | AWS Region to deploy to                       |
+| ORGANIZATION_ID |       no |                    none | ID of Organization to grant access to layer   |
+|       PRINCIPAL |       no |                 account | Principal to grant access to layer            |
 
 For details on `ORGANIZATION_ID` and `PRINCIPAL` please see the equivalent properties in the [CloudFormation Docs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html).
 
